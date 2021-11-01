@@ -20,6 +20,7 @@
  - Edit any uncompleted task.
  - Delete a single task.
  - Delete all completed tasks.
+ - Project created for best practices review!
 
 ## Built With
 
