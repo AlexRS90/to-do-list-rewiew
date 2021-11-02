@@ -11,7 +11,7 @@ function addTask() {
       index: dinamic.listToDo.length + 1,
     };
     dinamic.listToDo.push(obj);
-    dinamic.loadTask();
+    dinamic.saveTask();
     dinamic.getTask();
     document.querySelector('.input-text').value = '';
   }
