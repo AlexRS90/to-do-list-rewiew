@@ -3,14 +3,13 @@ import Trash from './icons/delete.png';
 
 let listToDo = [];//eslint-disable-line
 
-function loadTask() {
-  localStorage.setItem('lista', JSON.stringify(listToDo));
+function saveTask() {
+  localStorage.setItem('taskToDo', JSON.stringify(listToDo));
 }
 
 function getTask() {
-  if (localStorage.getItem('lista')) {
-    const hola = JSON.parse(localStorage.getItem('lista'));
-    listToDo = hola;
+  if (localStorage.getItem('taskToDo')) {
+    listToDo = JSON.parse(localStorage.getItem('taskToDo'));
   }
 
   let newTask = '';
@@ -39,7 +38,7 @@ function getTask() {
         listToDo.forEach((newIndex, i) => {
           newIndex.index = i + 1;
         });
-        loadTask();
+        saveTask();
         getTask();
       });
     } else {
@@ -54,7 +53,7 @@ function getTask() {
         el.completed = !el.completed;
       }
     });
-    loadTask();
+    saveTask();
     getTask();
   }
 
@@ -71,7 +70,7 @@ function getTask() {
   function updateTask(i) {
     document.querySelectorAll('.m-task')[i - 1].addEventListener('focusout', () => {
       listToDo[i - 1].description = document.querySelectorAll('.m-task')[i - 1].innerText;
-      loadTask();
+      saveTask();
     });
     document.querySelectorAll('.m-task')[i - 1].removeEventListener('focusout', () => {});
   }
@@ -103,8 +102,8 @@ document.querySelector('#delete-all').addEventListener('click', () => {
   listToDo.forEach((newIndex, i) => {
     newIndex.index = i + 1;
   });
-  loadTask();
+  saveTask();
   getTask();
 });
 
-export { getTask, loadTask, listToDo };
+export { getTask, saveTask, listToDo };
