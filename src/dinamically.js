@@ -46,6 +46,7 @@ function getTask() {
       arrMTask[index].contenteditable = 'true';
     }
   });
+}
 
   function checkStatus(box) {
     listToDo.forEach((el) => {
@@ -91,7 +92,7 @@ function getTask() {
     });
   }
   editTask();
-}
+
 
 document.querySelector('.input-text').addEventListener('focus', () => {
   document.getElementById('val-entry').classList.remove('validationEntry');
